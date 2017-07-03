@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.2 (2017-07-03)
+
+Breaking changes:
+
+- None
+
+Added:
+
+- None
+
+Fixed:
+
+- [#5](https://github.com/jaredbeck/libyear-npm/pull/5)
+  Use a node executable instead of a bash one so that bin symlinks work
+
 ## 0.1.1 (2017-06-29)
 
 Breaking changes:
