@@ -6,7 +6,9 @@ https://libyear.com/
 
 ## Usage
 
-### Using [npx](https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner)
+### Using npx
+[npx](https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner) is available with npm v5.2.0 and above.
+
 Browse a folder containing the `package.json` and use:
 ``` 
 npx libyear-npm
@@ -14,7 +16,7 @@ npx libyear-npm
 
 ### Local usage
 ```
-npm install libyear-npm
+npm install libyear-npm --save-dev
 ./node_modules/libyear-npm/bin/libyear-npm
        history      2.1.2      2016-05-26      4.5.1      2017-01-09     0.6
        numeral      1.5.6      2016-11-24      2.0.4      2016-12-21     0.1
