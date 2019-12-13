@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.3 (2019-12-13)
+
+Breaking changes:
+
+- None
+
+Added:
+
+- None
+
+Fixed:
+
+- [#7](https://github.com/jaredbeck/libyear-npm/pull/7)
+  Make execSync call compatible with node 12.6.0 #7
+
 ## 0.1.2 (2017-07-03)
 
 Breaking changes:
