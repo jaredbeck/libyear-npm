@@ -6,6 +6,13 @@ https://libyear.com/
 
 ## Usage
 
+### Using [npx](https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner)
+Browse a folder containing the `package.json` and use:
+``` 
+npx libyear-npm
+``` 
+
+### Local usage
 ```
 npm install libyear-npm
 ./node_modules/libyear-npm/bin/libyear-npm
