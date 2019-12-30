@@ -1,5 +1,7 @@
 # libyear-npm
 
+[![Build Status](https://travis-ci.org/jaredbeck/libyear-npm.svg?branch=master)](https://travis-ci.org/jaredbeck/libyear-npm)
+
 A simple measure of dependency freshness.
 
 https://libyear.com/
