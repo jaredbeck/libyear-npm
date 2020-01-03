@@ -7,7 +7,7 @@
     "moment": "^2.24.0",
     "sprintf-js": "^1.1.2"
   },
-  "main": "./lib/libyear-npm",
+  "main": "./lib/index",
   "bin": {
     "libyear-npm": "./bin/libyear-npm"
   },
