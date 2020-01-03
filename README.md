@@ -59,7 +59,7 @@ var result = libyear(pathToDirectoryWithPackageJson);
 If you need the results as they are received, there is an EventEmitter you can use:
 
 ```
-var calculatorEventEmitter = require('./libyear-npm.js').eventEmitter;
+var calculatorEventEmitter = require('libyear-npm').eventEmitter;
 
 calculatorEventEmitter.on('repositoryScanned', (args) => {
   // args is an object with the following structure:
