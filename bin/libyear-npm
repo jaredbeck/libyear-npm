@@ -6,10 +6,10 @@ var vsprintf = require('sprintf-js').vsprintf;
 var outdated = require('../lib/outdated.js');
 var releaseTime = require('../lib/release-time.js');
 var calculator = require('../lib/calculator.js').calculator;
-var calculatorEventEmitter = require('../lib/calculator.js').eventEmitter;
+var calculatorEvents = require('../lib/calculator.js').calculatorEvents;
 
 try {
-  calculatorEventEmitter.on('repositoryScanned', (args) => {
+  calculatorEvents.on('libScanned', (args) => {
     var row = vsprintf(
       '%30s %10s %15s %10s %15s %7.2f',
       [
@@ -24,7 +24,7 @@ try {
     process.stdout.write(row + '\n');
   });
   
-  const result = calculator(outdated(process.argv[2]), releaseTime, process.stdout);
+  const result = calculator(outdated(process.argv[2]), releaseTime);
   process.stdout.write(vsprintf('System is %.1f libyears behind\n', [result.totalLibYears]));
   return result;
 }

@@ -12,7 +12,7 @@ https://libyear.com/
 
 [npx](https://blog.npmjs.org/post/162869356040/introducing-npx-an-npm-package-runner) is available with npm v5.2.0 and above.
 
-Browse a folder containing the `package.json` and use:
+Browse to a folder containing the `package.json` and use:
 
 ```
 npx libyear-npm
@@ -20,8 +20,11 @@ npx libyear-npm
 
 ### Local usage
 
+At the root of your project, run:
+
 ```
 npm install libyear-npm --save-dev
+
 ./node_modules/libyear-npm/bin/libyear-npm
        history      2.1.2      2016-05-26      4.5.1      2017-01-09     0.6
        numeral      1.5.6      2016-11-24      2.0.4      2016-12-21     0.1
@@ -35,41 +38,59 @@ System is 1.8 libyears behind
 
 ### Programmatic usage
 
-It is possible to use libyear-npm from your applications:
+It is possible to use libyear-npm from your applications.
 
+#### calculate
+
+```js
+var calculate = require('libyear-npm').calculate;
+
+/*
+  Provide the path to a folder containing a package.json file
+  Path can be absolute or relative
+*/
+var result = calculate('./path/to/my/project/root');
+console.log('Total libyears: ' + result.totalLibYears);
+
+/* Result is an object with the following structure:
+  {
+    totalLibYears: 1.6,
+    library1: {
+      key: string,
+      currentVersion: string,
+      currentMoment: moment,
+      latestVersion: string,
+      latestMoment: moment,
+      years: number
+    },
+    library2: { ... },
+    ...
+  }
+*/
 ```
-var libyear = require('libyear-npm');
 
-var result = libyear(pathToDirectoryWithPackageJson); 
-// path can be absolute or relative
-// result is an object with the following structure:
-// {
-//   totalLibYears: 1.6,
-//   banana: {
-//     key: string,
-//     currentVersion: string,
-//     currentMoment: moment,
-//     latestVersion: string,
-//     latestMoment: moment,
-//     years: number
-//   }
-// }
-```
+#### calculatorEvents
 
-If you need the results as they are received, there is an EventEmitter you can use:
+You can also subcribe to the `calculatorEvents` to get results as they are processed:
 
-```
-var calculatorEventEmitter = require('libyear-npm').eventEmitter;
+```js
+var calculate = require('libyear-npm').calculate;
+var calculatorEvents = require('libyear-npm').calculatorEvents;
 
-calculatorEventEmitter.on('repositoryScanned', (args) => {
-  // args is an object with the following structure:
-  // {
-  //   key: string,
-  //   currentVersion: string,
-  //   currentMoment: moment,
-  //   latestVersion: string,
-  //   latestMoment: moment
-  //   years: number
-  // }
+calculatorEvents.on('libScanned', libStats => {
+  /* libStats is an object with the following structure:
+    {
+      key: string,
+      currentVersion: string,
+      currentMoment: moment,
+      latestVersion: string,
+      latestMoment: moment
+      years: number
+    }
+  */
+  console.log('Lib: ' + libStats.key + ', years: ' + libStats.years);
 });
+
+var result = calculate('./path/to/my/project/root');
+console.log('Total libyears: ' + result.totalLibYears);
 ```
