@@ -32,3 +32,44 @@ npm install libyear-npm --save-dev
      validator      6.3.0      2017-02-24      7.0.0      2017-02-24     0.0
 System is 1.8 libyears behind
 ```
+
+### Programmatic usage
+
+It is possible to use libyear-npm from your applications:
+
+```
+var libyear = require('libyear-npm');
+
+var result = libyear(pathToDirectoryWithPackageJson); 
+// path can be absolute or relative
+// result is an object with the following structure:
+// {
+//   totalLibYears: 1.6,
+//   banana: {
+//     key: string,
+//     currentVersion: string,
+//     currentMoment: moment,
+//     latestVersion: string,
+//     latestMoment: moment,
+//     years: number
+//   }
+// }
+```
+
+If you need the results as they are received, there is an EventEmitter you can use:
+
+```
+var calculatorEventEmitter = require('libyear-npm').eventEmitter;
+
+calculatorEventEmitter.on('repositoryScanned', (args) => {
+  // args is an object with the following structure:
+  // {
+  //   key: string,
+  //   currentVersion: string,
+  //   currentMoment: moment,
+  //   latestVersion: string,
+  //   latestMoment: moment
+  //   years: number
+  // }
+});
+```
