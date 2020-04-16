@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.2.0 (2020-04-16)
+
+Breaking changes:
+
+- None
+
+Added:
+
+- [#8](https://github.com/jaredbeck/libyear-npm/pull/8)
+  Allow calculator to be used programmatically
+
+Fixed:
+
+- None
+
 ## 0.1.3 (2019-12-13)
 
 Breaking changes:
@@ -13,7 +28,7 @@ Added:
 Fixed:
 
 - [#7](https://github.com/jaredbeck/libyear-npm/pull/7)
-  Make execSync call compatible with node 12.6.0 #7
+  Make execSync call compatible with node 12.6.0
 
 ## 0.1.2 (2017-07-03)
 
